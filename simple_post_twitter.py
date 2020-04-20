@@ -1,10 +1,10 @@
 import time
 import requests
 mydata = { "api" : "API KEY FROM ME",
-         "consumer_key" : "Mcc2TNNFZbC5jacktyOxrE9VA",
-         "consumer_secret" : "p2phDybjOyqiaW5mtO5ov40IRsmcmxB9WY2XqYchQha9P4fdfm",
-         "access_token" : "447510677-YH0rZr7or9m5nGFkq4hMpFUxehnUbBEQFeiip4ui",
-         "access_token_secret" : "BKxUIKDc1vfpy9Ef7iV3JJEWa7BS1484T90iGZHIKJIFZ"}
+         "consumer_key" : "CONSUMER KEY FROM TWITTER",
+         "consumer_secret" : "CONSUMER SECRET KEY FROM TWITTER",
+         "access_token" : "ACCESS TOKEN FROM TWITTER",
+         "access_token_secret" : "ACCESS TOKEN SECRET FROM TWITTER"}
 status1 = True
 while status1 == True:
     print("================================")
