@@ -2,11 +2,13 @@ import time
 import requests , os
 import pyfiglet
 
-mydata = { "api" : "get from me",
-         "consumer_key" : "CONSUMER KEY",
-         "consumer_secret" : "CONSUMER SECRET",
-         "access_token" : "ACCESS TOKEN",
-         "access_token_secret" : "ACESS TOKEN SECRET"}
+api = "papa"
+
+mydata = { "api" : api,
+         "consumer_key" : "PHuecnwwhBTRYLNPYnKhvkzTj",
+         "consumer_secret" : "fJpRag459qrlm9HLemopzeEVLZfYQdWTNg3C0vsZmxwr7y6rk6",
+         "access_token" : "447510677-B56NUu9fA744oKpF0flTQs53fVD31BWvwV04SuOF",
+         "access_token_secret" : "a3hLWMil9YEgG2v0XKRfnbjFp8RPkK6yHBJIe2yuHMtBu"}
 
 
 status1 = True
@@ -24,6 +26,7 @@ while status1 == True:
     print (" 'UNF'  ||   1. Unfollow Not Follback        |")
     print (" 'UAF'  ||   2. Unfollow ALL FOLLOWING [HOT] |")
     print (" 'FFT'  ||   3. Follow Followers Target      |")
+    print (" 'TGT'  ||   4. ADD TARGET                   |")
     print (" 'exit'                                      |")
     print("==============================================|")
     pil = input("Pilihan Kamu (UNF / UAF / FFT / exit) : ")
@@ -51,18 +54,7 @@ while status1 == True:
             print ("Percobaan ke-", i)
             print(r.text)
             if "TARGET" in r.text:
-                isi = True
-                while isi:
-                    isi1 = input("Mau isi username Target? : 1. Ya 2. Tidak")
-                    if isi1 == "1":
-                       username = input("Input username target : ")
-                       target = {"username" : username , "api": "api"}
-                       r = requests.post("https://tweetermedia.zapto.org/private/add_target.php", data = target)
-                       print(r.text)
-                    elif isi1 == "2":
-                        isi = False
-                    else:
-                        print("ISI YANG BENERLAH GOBLOG")
+                print("isi target dulu")
             if "Berhasil" in r.text:
                 print("Berhasil")
                 if i==1:
@@ -70,12 +62,26 @@ while status1 == True:
                 elif i>1:
                     time.sleep(40)
             elif "Gagal" in r.text:
-                n = 1
+                time.sleep(1)
+                print("Gagal TOKEN ERROR")
                 input("END. Press anything..")
-                print("Gagal")
+                n = 1
             elif "Duplikat" in r.text:
                 print("Duplikat")
             i += 1
+    elif pil=="TGT":
+        isi = True
+        while isi:
+              isi1 = input("Mau isi username Target? Ya / Tidak : ")
+              if isi1 == "Ya":
+                 username = input("Input username target : ")
+                 target = {"username" : username , "api": api}
+                 r = requests.post("https://tweetermedia.zapto.org/private/add_target.php", data = target)
+                 print(r.text)
+              elif isi1 == "Tidak":
+                    isi = False
+              else:
+                 print("ISI YANG BENERLAH GOBLOG")
     elif pil=="exit":
          status1 = False
 print ("END. Thank You.")
