@@ -2,13 +2,13 @@ import time
 import requests , os
 import pyfiglet
 
-api = "papa"
+api = "PUT YOUR API HERE"
 
 mydata = { "api" : api,
-         "consumer_key" : "PHuecnwwhBTRYLNPYnKhvkzTj",
-         "consumer_secret" : "fJpRag459qrlm9HLemopzeEVLZfYQdWTNg3C0vsZmxwr7y6rk6",
-         "access_token" : "447510677-B56NUu9fA744oKpF0flTQs53fVD31BWvwV04SuOF",
-         "access_token_secret" : "a3hLWMil9YEgG2v0XKRfnbjFp8RPkK6yHBJIe2yuHMtBu"}
+         "consumer_key" : " ",
+         "consumer_secret" : " ",
+         "access_token" : " ",
+         "access_token_secret" : " "}
 
 
 status1 = True
@@ -55,6 +55,7 @@ while status1 == True:
             print(r.text)
             if "TARGET" in r.text:
                 print("isi target dulu")
+                n = 1
             if "Berhasil" in r.text:
                 print("Berhasil")
                 if i==1:
