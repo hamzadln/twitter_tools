@@ -8,6 +8,7 @@ Get API From :
   tweetermedia.zapto.org/fileapi.php
 Get Twitter Token From:
   tweetermedia.zapto.org/
+  tweetermedia.zapto.org/alternate/
   
 How To Use:
    1. Change the PUT YOUR API HERE with your API.
