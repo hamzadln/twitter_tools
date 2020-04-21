@@ -5,10 +5,10 @@ import pyfiglet
 api = "PUT YOUR API HERE"
 
 mydata = { "api" : api,
-         "consumer_key" : " ",
-         "consumer_secret" : " ",
-         "access_token" : " ",
-         "access_token_secret" : " "}
+         "consumer_key" : "FILL YOUR CONSUMER KEY HERE ",
+         "consumer_secret" : "FILL YOUR CONSUMER SECRET HERE ",
+         "access_token" : "FILL YOUR ACCESS TOKEN HERE ",
+         "access_token_secret" : "FILL YOUR ACCESS TOKEN SECRET "}
 
 
 status1 = True
