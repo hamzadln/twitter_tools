@@ -3,9 +3,9 @@ import requests , os
 import pyfiglet
 
 api = "PUT YOUR API HERE"
-dm_stat = "ON"            """ON FOR START AUTO DM, LEAVE BLANK TO SET IT OFF!""" 
+dm_status = "ON" 
 mydata = { "api" : api,
-          "dm_status" : dm_stat, 
+          "dm_status" : dm_status, 
          "consumer_key" : "FILL YOUR CONSUMER KEY HERE ",
          "consumer_secret" : "FILL YOUR CONSUMER SECRET HERE ",
          "access_token" : "FILL YOUR ACCESS TOKEN HERE ",
