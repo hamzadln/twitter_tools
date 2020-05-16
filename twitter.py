@@ -3,8 +3,9 @@ import requests , os
 import pyfiglet
 
 api = "PUT YOUR API HERE"
-
+dm_stat = "ON"            """ON FOR START AUTO DM, LEAVE BLANK TO SET IT OFF!""" 
 mydata = { "api" : api,
+          "dm_status" : dm_stat, 
          "consumer_key" : "FILL YOUR CONSUMER KEY HERE ",
          "consumer_secret" : "FILL YOUR CONSUMER SECRET HERE ",
          "access_token" : "FILL YOUR ACCESS TOKEN HERE ",
@@ -27,6 +28,7 @@ while status1 == True:
     print (" 'UAF'  ||   2. Unfollow ALL FOLLOWING [HOT] |")
     print (" 'FFT'  ||   3. Follow Followers Target      |")
     print (" 'TGT'  ||   4. ADD TARGET                   |")
+    print (" 'DM'   ||   5. ADD CAPTION DM               |")
     print (" 'exit'                                      |")
     print("==============================================|")
     pil = input("Pilihan Kamu (UNF / UAF / FFT / exit) : ")
@@ -36,7 +38,7 @@ while status1 == True:
         r = requests.post("https://tweetermedia.zapto.org/private/notfollback.php", data = mydata)
         if r.status_code == 500:
             print ("ERROR 500")
-        print (r.text)
+        print (r.status_code)
         input("Press Anything..")
     elif pil == "UAF":
          print ("May cause your twitter token expired, broken, and your twitter might be temporary or permanently suspended.")
@@ -55,7 +57,6 @@ while status1 == True:
             print(r.text)
             if "TARGET" in r.text:
                 print("isi target dulu")
-                n = 1
             if "Berhasil" in r.text:
                 print("Berhasil")
                 if i==1:
@@ -63,10 +64,9 @@ while status1 == True:
                 elif i>1:
                     time.sleep(40)
             elif "Gagal" in r.text:
-                time.sleep(1)
+                time.sleep(0)
                 print("Gagal TOKEN ERROR")
-                input("END. Press anything..")
-                n = 1
+                n = 2
             elif "Duplikat" in r.text:
                 print("Duplikat")
             i += 1
@@ -78,6 +78,19 @@ while status1 == True:
                  username = input("Input username target : ")
                  target = {"username" : username , "api": api}
                  r = requests.post("https://tweetermedia.zapto.org/private/add_target.php", data = target)
+                 print(r.text)
+              elif isi1 == "Tidak":
+                    isi = False
+              else:
+                 print("ISI YANG BENERLAH GOBLOG")
+    elif pil=="DM":
+        isi = True
+        while isi:
+              isi1 = input("Mau isi caption DM mu? Ya / Tidak : ")
+              if isi1 == "Ya":
+                 username = input("Input Captionmu (ex: follback ya babiikk) : ")
+                 target = {"username" : username , "api": api}
+                 r = requests.post("https://tweetermedia.zapto.org/private/add_caption.php", data = target)
                  print(r.text)
               elif isi1 == "Tidak":
                     isi = False
